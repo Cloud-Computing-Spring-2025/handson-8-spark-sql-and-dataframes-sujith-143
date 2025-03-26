@@ -16,10 +16,12 @@ age_groups = ["Teen", "Adult", "Senior"]
 countries = ["US", "UK", "Canada", "India", "Germany", "Brazil"]
 verified_status = [True, False]
 
+# Loop over 50 users, but usernames will repeat after every 10 users
 for user_id in range(1, 51):
+    username = usernames[(user_id - 1) % len(usernames)]  # Repeats usernames list if user_id > 10
     user = {
         "UserID": user_id,
-        "Username": usernames[user_id - 1],
+        "Username": username,
         "AgeGroup": random.choice(age_groups),
         "Country": random.choice(countries),
         "Verified": random.choice(verified_status)
